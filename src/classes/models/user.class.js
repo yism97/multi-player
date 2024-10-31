@@ -1,7 +1,7 @@
 class User {
   constructor(socket, id, playerId, latency) {
-    this.socket = socket;
     this.id = id;
+    this.socket = socket;
     this.playerId = playerId;
     this.latency = latency;
     this.x = 0;

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "migrate": "node src/DB/migrations/createSchema.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "mysql2": "^3.11.3",
     "protobufjs": "^7.4.0",
     "uuid": "^11.0.2"
   }
