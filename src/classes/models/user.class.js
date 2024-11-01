@@ -4,8 +4,8 @@ class User {
     this.socket = socket;
     this.playerId = playerId;
     this.latency = latency;
-    this.x = coords.x;
-    this.y = coords.y;
+    this.x = coords.x; // 사용자의 초기 x 위치
+    this.y = coords.y; // 사용자의 초기 y 위치
     this.lastUpdateTime = Date.now();
   }
 

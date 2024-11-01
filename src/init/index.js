@@ -3,6 +3,7 @@ import { testConnection } from '../utils/db/testConnection.js';
 import { loadProtos } from './loadProto.js';
 import { v4 as uuidv4 } from 'uuid';
 
+// 서버 시작을 위한 함수 정의
 const initServer = async () => {
   try {
     await loadProtos();

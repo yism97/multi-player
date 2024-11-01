@@ -12,7 +12,7 @@ const createSchema = async () => {
   try {
     const sql = fs.readFileSync(sqlDir + '/user_db.sql', 'utf8');
 
-    // 쿼리 뽑아내기
+    // 구석까지 극한으로 쿼리 뽑아내기
     const queries = sql
       .split(';')
       .map((query) => query.trim())
