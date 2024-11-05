@@ -16,7 +16,15 @@ export const removeUser = async (socket) => {
     return userSessions.splice(index, 1)[0];
   }
 };
-
+// 소켓을 이용해 세션에서 사용자 객체를 찾는 함수
+export const getUserBySocket = (socket) => {
+  const user = userSessions.find((user) => user.socket === socket);
+  if (!user) {
+    // TODO
+    console.log('User not found : getUserBySocket');
+  }
+  return user;
+};
 export const getAllUser = () => {
   return userSessions;
 };

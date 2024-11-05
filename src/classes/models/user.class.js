@@ -1,3 +1,5 @@
+import { createPingPacket } from '../../utils/notification/game.notification.js';
+
 class User {
   constructor(socket, id, playerId, latency, coords) {
     this.id = id;
@@ -29,9 +31,10 @@ class User {
   }
 
   // 핑에 대한 응답(pong)을 처리하는 메서드
-  handlerPong() {
+  handlePong(data) {
     const now = Date.now();
     this.latency = (now - data.timestamp) / 2; // 지연 시간 계산
+    console.log(`${this.id}:${this.latency}ms`);
   }
 
   // 사용자의 위치를 지연 시간을 고려하여 계산하는 메서드

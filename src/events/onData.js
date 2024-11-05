@@ -1,5 +1,7 @@
 import { PACKET_TYPE, PACKET_TYPE_LENGTH, TOTAL_LENGTH } from '../constants/header.js';
 import { getHandlerById } from '../handler/index.js';
+import { getProtoMessages } from '../init/loadProto.js';
+import { getUserBySocket } from '../sessions/user.session.js';
 import { packetParser } from '../utils/parser/packetParser.js';
 
 export const onData = (socket) => (data) => {
@@ -20,6 +22,18 @@ export const onData = (socket) => (data) => {
       try {
         // 패킷 유형에 따라 적절한 처리 수행
         switch (packetType) {
+          // PING 패킷 유형 처리
+          case PACKET_TYPE.PING:
+            {
+              // 프로토 메시지 로드 및 PING 패킷 디코딩
+              const protoMessages = getProtoMessages();
+              const Ping = protoMessages.common.Ping;
+              const PingPacket = Ping.decode(packet);
+              // 소켓에 연결된 사용자 객체를 가져와 handlePong 메서드 호출
+              const user = getUserBySocket(socket);
+              user.handlePong(PingPacket);
+            }
+            break;
           case PACKET_TYPE.NORMAL: {
             const { handlerId, userId, payload } = packetParser(packet);
 
