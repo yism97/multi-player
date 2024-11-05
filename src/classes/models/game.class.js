@@ -30,6 +30,7 @@ class Game {
     }
   }
 
+  // 모든 사용자 중 최대 지연 시간
   getMaxLatency() {
     let maxLatency = 0;
     this.users.forEach((user) => {
