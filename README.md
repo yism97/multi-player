@@ -60,12 +60,12 @@
 
 9일차 **핑 체크 - 클라이언트(진행 예정)**
 
-- [ ]  (클라이언트) ping 전송 로직 추가
-- [ ]  (클라, 서버) ping 테스트
+- [✔️]  (클라이언트) ping 전송 로직 추가
+- [✔️]  (클라, 서버) ping 테스트
 
 10일차 **최종 확인 및 테스트**
 
-- [ ]  테스트
+- [✔️]  테스트
 </aside>
 
 -----------------------------------------------
@@ -139,7 +139,7 @@
         [ProtoMember(3, IsRequired = true)]
         public float latency { get; set; }
 
-}
+        }
 
 #### LocationUpdatePayload
     [ProtoContract]
@@ -173,7 +173,7 @@
             public float y { get; set; }
     }
 
-}
+    }
 
 #### Response
 
